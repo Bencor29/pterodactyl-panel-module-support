@@ -12,7 +12,7 @@ class SupportController extends Controller
     public function index()
     {
         $tickets = Ticket::get();
-        return view('base/support', [
+        return view('base/support/index', [
             'tickets' => $tickets
         ]);
     }

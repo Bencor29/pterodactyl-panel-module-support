@@ -112,6 +112,11 @@
                                 <i class="fa fa-server"></i> <span>@lang('navigation.account.my_servers')</span>
                             </a>
                         </li>
+                        <li class="{{ Route::currentRouteName() !== 'index.support' ?: 'active' }}">
+                            <a href="{{ route('index.support')}}">
+                                <i class="@lang('support.navigation.icon')"></i> <span>@lang('support.navigation.text')</span>
+                            </a>
+                        </li>
                         @if (isset($server->name) && isset($node->name))
                             <li class="header">@lang('navigation.server.header')</li>
                             <li class="{{ Route::currentRouteName() !== 'server.index' ?: 'active' }}">

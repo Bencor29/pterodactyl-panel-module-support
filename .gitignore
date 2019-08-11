@@ -32,3 +32,5 @@ coverage.xml
 
 # Vagrant
 *.log
+
+.ftpconfig

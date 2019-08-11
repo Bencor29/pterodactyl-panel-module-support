@@ -9,6 +9,16 @@
 Route::get('/', 'IndexController@getIndex')->name('index');
 Route::get('/status/{server}', 'IndexController@status')->name('index.status');
 
+Route::group(['prefix' => 'support'], function () {
+    Route::get('/', 'SupportController@index')->name('index.support');
+
+    Route::get('/new', 'SupportController@create')->name('index.support.new');
+    Route::post('/new', 'SupportController@store');
+
+    Route::get('/{ticket}', 'SupportController@view')->name('index.support.see');
+    Route::post('/{ticket}', 'SupportController@update');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Account Controller Routes

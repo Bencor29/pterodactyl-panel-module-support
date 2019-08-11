@@ -7,6 +7,7 @@ use Pterodactyl\Models\Server;
 
 class Ticket extends Model
 {
+
     /**
      * Gets information for the server associated with this allocation.
      *

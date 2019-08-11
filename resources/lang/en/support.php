@@ -14,4 +14,11 @@ return [
     'text' => 'Support',
     'icon' => 'fa fa-life-ring',
   ],
+  'list' => [
+    'id' => 'ID',
+    'subject' => 'Subject',
+    'server' => 'Server',
+    'status' => 'Status',
+    'noserver' => 'none'
+  ],
 ];

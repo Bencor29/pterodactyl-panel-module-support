@@ -27,6 +27,37 @@
                     <a class="btn btn-sm btn-primary" href="{{ route('index.support.new') }}">@lang('support.strings.new')</a>
                 </div>
             </div>
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>@lang('support.list.id')</th>
+                            <th>@lang('support.list.subject')</th>
+                            <th>@lang('support.list.server')</th>
+                            <th>@lang('support.list.status')</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($tickets as $ticket)
+                          <td><code>{{ $ticket->id }}</code></td>
+                          <td><a href="{{ route('index.support.see', $ticket) }}">{{ $ticket->subject }}</a></td>
+                          <td>
+                              @isnull($ticket->server)
+                                  <i>none</i>
+                              @else
+                                  <code title="{{ $ticket->server->name }}">{{ $ticket->server->uuidShort }}</code></td>
+                              @endisnull
+                          <td>
+                              @if($ticket->is_closed)
+                                  <span class="label label-danger">Closed</span>
+                              @else
+                                  <span class="label label-success">Open</span>
+                              @endif
+                          </td>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

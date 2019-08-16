@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Pterodactyl\Http\Controllers\Controller;
 use Pterodactyl\Http\Requests\Base\StoreTicketFormRequest;
 use Pterodactyl\Models\Ticket;
+use Pterodactyl\Models\TicketMessages;
 use Prologue\Alerts\AlertsMessageBag;
 
 class SupportController extends Controller
@@ -74,6 +75,16 @@ class SupportController extends Controller
         ]);
 
         $t->save();
+
+        $tm = new TicketMessages;
+        $tm->fill([
+            'ticket_id' => $t->id,
+            'user_id' => $request->user()->id,
+            'message' => $message,
+            'is_admin' => false,
+        ]);
+
+        $tm->save();
 
         $this->alert->success(trans('support.strings.posted'))->flash();
 

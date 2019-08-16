@@ -39,21 +39,24 @@
                     </thead>
                     <tbody>
                         @foreach($tickets as $ticket)
-                          <td><code>{{ $ticket->id }}</code></td>
-                          <td><a href="{{ route('index.support.see', $ticket) }}">{{ $ticket->subject }}</a></td>
-                          <td>
-                              @isnull($ticket->server)
-                                  <i>none</i>
-                              @else
-                                  <code title="{{ $ticket->server->name }}">{{ $ticket->server->uuidShort }}</code></td>
-                              @endisnull
-                          <td>
-                              @if($ticket->is_closed)
-                                  <span class="label label-danger">Closed</span>
-                              @else
-                                  <span class="label label-success">Open</span>
-                              @endif
-                          </td>
+                            <tr>
+                                <td><code>{{ $ticket->id }}</code></td>
+                                <td><a href="{{ route('index.support.see', $ticket) }}">{{ $ticket->subject }}</a></td>
+                                <td>
+                                    @isnull($ticket->server)
+                                        <i>none</i>
+                                    @else
+                                        <code title="{{ $ticket->server->name }}">{{ $ticket->server->uuidShort }}</code>
+                                    @endisnull
+                                </td>
+                                <td>
+                                    @if($ticket->is_closed)
+                                        <span class="label label-danger">Closed</span>
+                                    @else
+                                        <span class="label label-success">Open</span>
+                                    @endif
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

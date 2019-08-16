@@ -9,6 +9,13 @@ return [
   'strings' => [
     'support' => 'Support',
     'new' => 'New ticket',
+    'message' => 'Message',
+    'placeholder_msg' => 'The message you want to send to the support',
+    'placeholder_sub' => 'The ticket subject',
+    'send' => 'Send',
+    'unknown_server' => 'Server not found with this id, try again',
+    'not_server_owner' => 'You must be the related server\'s owner',
+    'posted' => 'You ticket has been posted, please wait the support reply before replying again',
   ],
   'navigation' => [
     'text' => 'Support',

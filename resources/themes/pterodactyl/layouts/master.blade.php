@@ -112,7 +112,7 @@
                                 <i class="fa fa-server"></i> <span>@lang('navigation.account.my_servers')</span>
                             </a>
                         </li>
-                        <li class="{{ Route::currentRouteName() !== 'index.support' && Route::currentRouteName() !== 'index.support.new' && Route::currentRouteName() !== 'index.support.new' ?: 'active' }}">
+                        <li class="{{ Route::currentRouteName() !== 'index.support' && Route::currentRouteName() !== 'index.support.new' && Route::currentRouteName() !== 'index.support.see' ?: 'active' }}">
                             <a href="{{ route('index.support')}}">
                                 <i class="@lang('support.navigation.icon')"></i> <span>@lang('support.navigation.text')</span>
                             </a>

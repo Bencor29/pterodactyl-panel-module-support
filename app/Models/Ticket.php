@@ -4,6 +4,8 @@ namespace Pterodactyl\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Pterodactyl\Models\Server;
+use Pterodactyl\Models\User;
+use Pterodactyl\Models\TicketMessages;
 
 class Ticket extends Model
 {
@@ -49,5 +51,15 @@ class Ticket extends Model
     public function admin()
     {
         return $this->belongsTo(User::class, 'admin_id');
+    }
+
+    /**
+     * Gets the messages for this tikcet.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function messages()
+    {
+        return $this->hasMany(TicketMessages::class);
     }
 }

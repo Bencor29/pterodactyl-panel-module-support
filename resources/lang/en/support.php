@@ -16,6 +16,17 @@ return [
     'unknown_server' => 'Server not found with this id, try again',
     'not_server_owner' => 'You must be the related server\'s owner',
     'posted' => 'You ticket has been posted, please wait the support reply before replying again',
+    'ticket' => 'Your ticket',
+    'reply_closed' => 'You can\'t reply to a closed ticket',
+    'close_ticket' => 'Close ticket',
+    'post_reply' => 'Type your message...',
+    'reply_posted' => 'Your message has been posted',
+    'ticket_closed' => 'Your ticket has been closed',
+  ],
+  'messages' => [
+     'sent_by' => 'Sent by',
+     'you' => 'you',
+     'date_format' => 'Y/m/d \\a\\t G:i', // Backslashes must be doubled
   ],
   'navigation' => [
     'text' => 'Support',

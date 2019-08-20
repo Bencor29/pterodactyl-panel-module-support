@@ -95,6 +95,11 @@
                                 <i class="fa fa-gamepad"></i> <span>Application API</span>
                             </a>
                         </li>
+                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.support') ?: 'active' }}">
+                            <a href="{{ route('admin.support.index')}}">
+                                <i class="fa fa-life-ring"></i> <span>Support</span>
+                            </a>
+                        </li>
                         <li class="header">MANAGEMENT</li>
                         <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.databases') ?: 'active' }}">
                             <a href="{{ route('admin.databases') }}">

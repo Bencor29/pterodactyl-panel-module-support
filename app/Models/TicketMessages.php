@@ -16,7 +16,7 @@ class TicketMessages extends Model
         'ticket_id',
         'user_id',
         'message',
-        'id_admin',
+        'is_admin',
     ];
 
     /**

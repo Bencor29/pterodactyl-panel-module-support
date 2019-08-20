@@ -6,6 +6,10 @@ return [
     'header_sub' => 'Show your messages to the support, ask question, read the replies.',
     'requests' => 'Your tickets',
   ],
+  'admin' => [
+    'requests' => 'Tickets list',
+    'header_sub' => 'Display the tickets, read, reply and close them.',
+  ],
   'strings' => [
     'support' => 'Support',
     'new' => 'New ticket',
@@ -23,6 +27,8 @@ return [
     'reply_posted' => 'Your message has been posted',
     'ticket_closed' => 'Your ticket has been closed',
     'not_your' => 'This is not your ticket',
+    'warning_assigned' => 'Be careful, this ticket is assigned to',
+    'assigned_to_you' => 'The ticket has been assigned to you',
   ],
   'messages' => [
      'sent_by' => 'Sent by',
@@ -38,6 +44,13 @@ return [
     'subject' => 'Subject',
     'server' => 'Server',
     'status' => 'Status',
-    'noserver' => 'none'
+    'noserver' => 'none',
+    'admin' => 'Assigned admin',
+    'noadmin' => 'none',
+  ],
+  'status' => [
+    'open' => 'Open',
+    'closed' => 'Closed',
+    'assigned' => 'Assigned',
   ],
 ];

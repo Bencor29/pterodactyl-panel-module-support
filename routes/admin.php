@@ -22,6 +22,21 @@ Route::group(['prefix' => 'api'], function () {
 
 /*
 |--------------------------------------------------------------------------
+| Support Controller Routes
+|--------------------------------------------------------------------------
+|
+| Endpoint: /admin/support
+|
+*/
+Route::group(['prefix' => 'support'], function () {
+    Route::get('/', 'SupportController@index')->name('admin.support.index');
+
+    Route::get('/{ticket}', 'SupportController@view')->name('admin.support.see');
+    Route::post('/{ticket}', 'SupportController@update');
+});
+
+/*
+|--------------------------------------------------------------------------
 | Location Controller Routes
 |--------------------------------------------------------------------------
 |

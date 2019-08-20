@@ -3,7 +3,30 @@
 
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
-@extends('layouts.master')
+
+<?php
+    $admin = isset($admin) ?: false;
+?>
+
+@extends('layouts.' . ($admin ? 'admin' : 'master'))
+
+@if($admin)
+    @section('content-header')
+        <h1>@lang('support.base.header')<small>@lang('support.admin.header_sub')</small></h1>
+        <ol class="breadcrumb">
+            <li><a href="{{ route('admin.index') }}">@lang('strings.home')</a></li>
+            <li class="active">@lang('support.strings.support')</li>
+        </ol>
+    @endsection
+@else
+    @section('content-header')
+        <h1>@lang('support.base.header')<small>@lang('support.base.header_sub')</small></h1>
+        <ol class="breadcrumb">
+            <li><a href="{{ route('index') }}">@lang('strings.home')</a></li>
+            <li class="active">@lang('support.strings.support')</li>
+        </ol>
+    @endsection
+@endif
 
 @section('title')
     @lang('support.base.header')
@@ -19,14 +42,6 @@
             margin-left: 1em;
         }
     </style>
-@endsection
-
-@section('content-header')
-    <h1>@lang('support.base.header')<small>@lang('support.base.header_sub')</small></h1>
-    <ol class="breadcrumb">
-        <li><a href="{{ route('index') }}">@lang('strings.home')</a></li>
-        <li class="active">@lang('support.strings.support')</li>
-    </ol>
 @endsection
 
 @section('content')
@@ -50,7 +65,7 @@
             </div>
             @if(!$ticket->is_closed)
                 <div class="box-footer">
-                    <form action="{{ route('index.support.see', $ticket) }}" method="post">
+                    <form action="{{ route(($admin ? 'admin' : 'index') . '.support.see', $ticket) }}" method="post">
                         @csrf
                         <div class="form-group">
                             <textarea name="message" placeholder="@lang('support.strings.post_reply')" class="form-control" rows="7"></textarea>

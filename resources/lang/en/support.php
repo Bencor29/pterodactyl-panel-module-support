@@ -22,6 +22,7 @@ return [
     'post_reply' => 'Type your message...',
     'reply_posted' => 'Your message has been posted',
     'ticket_closed' => 'Your ticket has been closed',
+    'not_your' => 'This is not your ticket',
   ],
   'messages' => [
      'sent_by' => 'Sent by',

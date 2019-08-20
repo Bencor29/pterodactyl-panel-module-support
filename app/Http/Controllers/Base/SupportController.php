@@ -35,7 +35,7 @@ class SupportController extends Controller
      */
     public function index()
     {
-        $tickets = Ticket::get();
+        $tickets = Ticket::where('user_id', auth()->user()->id)->get();
         return view('base/support/index', [
             'tickets' => $tickets
         ]);
@@ -106,6 +106,10 @@ class SupportController extends Controller
      */
     public function view(Request $request, Ticket $ticket)
     {
+        if($ticket->user_id !== $request->user()->id) {
+            $this->alert->danger(trans('support.strings.not_your'))->flash();
+            return redirect(route('index.support'));
+        }
         return view('base/support/ticket', ['ticket' => $ticket]);
     }
 
@@ -117,7 +121,10 @@ class SupportController extends Controller
      * @return \Illuminate\View\View
      */
     public function update(UpdateTicketFormRequest $request, Ticket $ticket) {
-        if($ticket->is_closed) {
+        if($ticket->user_id !== $request->user()->id) {
+            $this->alert->danger(trans('support.strings.not_your'))->flash();
+            return redirect(route('index.support'));
+        } elseif($ticket->is_closed) {
             $this->alert->danger(trans('support.strings.reply_closed'))->flash();
         } else {
             $message = $request->input('message');

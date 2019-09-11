@@ -1,0 +1,1 @@
+Suppport for https://github.com/TheFonix/Pterodactyl-Themes/tree/master/MasterThemes/BlueBrick
